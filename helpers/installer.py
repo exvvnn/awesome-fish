@@ -1,10 +1,11 @@
 import os
 import shutil
-from .install_fish import fish_install
+from .install_shell import fish_install
+from .source_fish import source_fish
 
 def install(*args, **kwargs):
     current_directory = os.getcwd()
-    awesome_fish_directory = os.path.join(current_directory, "awesome-fish")
+    awesome_fish_directory = os.path.join(current_directory, "awesome-scripts")
     fish_config_location = os.path.expanduser("~/.config/fish")
     print(f"Fish config location: {fish_config_location}")
 
@@ -28,6 +29,8 @@ def install(*args, **kwargs):
                 else:
                     shutil.copy2(source_path, dest_path)
             
+            source_fish()
+            
             print("Awesome Fish contents have been copied to the functions directory")
         else:
             print("Awesome Fish directory not found")
@@ -37,6 +40,7 @@ def install(*args, **kwargs):
         result = input("Do you want to install it? (y/n): ")
         if result == "y":
             fish_install(*args, **kwargs)
+            
         else:
             print("Exiting...")
             exit()
