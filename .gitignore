@@ -6,5 +6,9 @@ dist/
 wheels/
 *.egg-info
 
+# Files
+/awesome-scripts/switch_gh_accounts.fish
+/awesome-scripts/file_tracker.fish
+
 # Virtual environments
-.venv
+*.venv
